@@ -13,6 +13,6 @@ public class Item : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        transform.parent.parent.GetComponent<InventoryManager>().selectedItem = this.transform;
+        transform.parent.parent.GetComponent<InventoryManager>().selectedItem = gameObject;
     }
 }

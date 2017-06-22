@@ -6,27 +6,13 @@ public class UIManager : MonoBehaviour
 {
 
     public bool invToggle;
-    public GameObject uiInv;
+    public Canvas uiInv;
 
     public void Update()
     {
         if (Input.GetButtonDown("E"))
         {
-            invToggle = !invToggle;
-            InventorySwitch();
-        }
-    }
-
-    public void InventorySwitch()
-    {
-        if (invToggle == true)
-        {
-            uiInv.SetActive(true);
-        }
-
-        else
-        {
-            uiInv.SetActive(false);
+            uiInv.enabled = !uiInv.enabled;
         }
     }
 }

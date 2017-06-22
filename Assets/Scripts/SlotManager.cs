@@ -8,6 +8,7 @@ public class SlotManager : MonoBehaviour {
     public void OnMouseEnter()
     {
         transform.parent.GetComponent<InventoryManager>().selectedSlot = this.transform;
+        print("test");
     }
 
     public void OnMouseExit()
