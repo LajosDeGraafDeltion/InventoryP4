@@ -10,8 +10,12 @@ public class InventoryManager : MonoBehaviour {
     public Image test;
     public Image currentIcon;
     public List<GameObject> playerInv = new List<GameObject>();
-    public bool selected;
+    public static bool selected;
 
+    public GameObject toolTipName;
+    public GameObject toolTipDesc;
+    public GameObject toolTipValue;
+    public GameObject toolTipWeight;
 
     private void Start()
     {
@@ -37,10 +41,6 @@ public class InventoryManager : MonoBehaviour {
         {
             selectedItem.transform.position = Input.mousePosition;
             //Zodra test gevuld is mag selectedItem niet vullen;
-            if(selectedItem != null)
-            {
-                //Zet Item Hover/onEnter uit.
-            }
 
         }
         else if (Input.GetMouseButtonUp(0) && selectedItem != null)
@@ -52,6 +52,14 @@ public class InventoryManager : MonoBehaviour {
             selectedItem = null;
             selected = false;
             test = null;
+        }
+
+        if (selectedItem != null)
+        {
+            toolTipName.GetComponent<Text>().text = selectedItem.GetComponent<Item>().itemName;
+            toolTipDesc.GetComponent<Text>().text = selectedItem.GetComponent<Item>().itemDesc;
+            toolTipValue.GetComponent<Text>().text = selectedItem.GetComponent<Item>().itemValue.ToString();
+            toolTipWeight.GetComponent<Text>().text = selectedItem.GetComponent<Item>().itemWeight.ToString();
         }
     }
 

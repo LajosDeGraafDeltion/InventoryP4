@@ -8,11 +8,16 @@ public class Item : MonoBehaviour
     public string itemName;
     public string itemDesc;
     public int itemID;
+    public int itemValue;
+    public float itemWeight;
     public Sprite itemIcon;
     public GameObject itemObject;
 
     public void OnMouseEnter()
     {
-        transform.parent.parent.GetComponent<InventoryManager>().selectedItem = gameObject;
+        if (InventoryManager.selected == false)
+        {
+            transform.parent.parent.GetComponent<InventoryManager>().selectedItem = gameObject;
+        }
     }
 }
