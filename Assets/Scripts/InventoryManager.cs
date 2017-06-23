@@ -16,10 +16,12 @@ public class InventoryManager : MonoBehaviour {
     public GameObject toolTipDesc;
     public GameObject toolTipValue;
     public GameObject toolTipWeight;
+    public GameObject toolTipUI;
 
     private void Start()
     {
         currentIcon.enabled = false;
+        toolTipUI.SetActive(false);
     }
 
     public void Update()
@@ -56,10 +58,15 @@ public class InventoryManager : MonoBehaviour {
 
         if (selectedItem != null)
         {
+            toolTipUI.SetActive(true);
             toolTipName.GetComponent<Text>().text = selectedItem.GetComponent<Item>().itemName;
             toolTipDesc.GetComponent<Text>().text = selectedItem.GetComponent<Item>().itemDesc;
             toolTipValue.GetComponent<Text>().text = selectedItem.GetComponent<Item>().itemValue.ToString();
             toolTipWeight.GetComponent<Text>().text = selectedItem.GetComponent<Item>().itemWeight.ToString();
+        }
+        else
+        {
+            toolTipUI.SetActive(false);
         }
     }
 

@@ -11,7 +11,6 @@ public class Item : MonoBehaviour
     public int itemValue;
     public float itemWeight;
     public Sprite itemIcon;
-    public GameObject itemObject;
 
     public void OnMouseEnter()
     {
